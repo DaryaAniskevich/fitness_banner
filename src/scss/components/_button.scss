@@ -1,0 +1,17 @@
+.button {
+  outline: none;
+  border: none;
+  &_transparent {
+    background-color: transparent;
+    border-radius: 50%;
+  }
+  &_blue {
+    background: linear-gradient(225deg, #542285 0%, #222266 100%);
+    border-radius: 5px;
+    padding: 11px 90px;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0.04px;
+    color: $white;
+  }
+}

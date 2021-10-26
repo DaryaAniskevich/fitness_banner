@@ -1,0 +1,27 @@
+@mixin screen-max($width) {
+  @media (max-width: $width - 1 + "px") {
+    @content;
+  }
+}
+
+@mixin screen-min($width) {
+  @media (min-width: $width + "px") {
+    @content;
+  }
+}
+
+@mixin images_x_2 {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@mixin images_x_3 {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2.5),
+    only screen and (min--moz-device-pixel-ratio: 2.5),
+    only screen and (min-resolution: 326dpi) {
+    @content;
+  }
+}

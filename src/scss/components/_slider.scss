@@ -1,0 +1,14 @@
+.slider {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  top: 200px;
+  &-wrapper {
+    width: calc(290px * 3);
+    display: flex;
+    grid-column-gap: 5px;
+    left: 0;
+    transition: all ease 1s;
+    transform: translateX(-265px);
+  }
+}

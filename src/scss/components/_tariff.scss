@@ -1,0 +1,72 @@
+.tariff {
+  padding: 62px 0 5px;
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  &-block {
+    position: relative;
+    &__benefit {
+      padding: 3px;
+      text-align: center;
+      background-color: $benefit-color;
+      border-radius: 5px 5px 0 0;
+      font-size: 11px;
+      line-height: 15px;
+      letter-spacing: 0.66px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    &__sale {
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+      background-color: $benefit-color;
+      border-radius: 0 0 5px 5px;
+      font-size: 7px;
+      line-height: 15px;
+      text-align: center;
+      letter-spacing: 0.42px;
+      padding: 0px 5px;
+    }
+  }
+  &-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $card-color;
+    width: 88px;
+    padding: 4px 5px 23px;
+    backdrop-filter: blur(9.06094px);
+    border-radius: 5px;
+    &__term {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 5px;
+      font-size: 20px;
+      line-height: 23px;
+      &_small {
+        font-size: 13px;
+        line-height: 15px;
+      }
+    }
+    &__sum {
+      font-size: 11px;
+      line-height: 13px;
+      letter-spacing: -0.3px;
+      margin-bottom: 3px;
+      text-align: center;
+    }
+    &__month {
+      font-size: 10px;
+      line-height: 12px;
+      letter-spacing: -0.3px;
+    }
+  }
+  &__button {
+    margin-top: 13px;
+  }
+}

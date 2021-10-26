@@ -1,0 +1,35 @@
+.review {
+  background-color: $card-color;
+  backdrop-filter: blur(9.06094px);
+  border-radius: 10px;
+  padding: 14px 15px;
+  width: 280px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+    &__title {
+      font-size: 15px;
+      line-height: 18px;
+    }
+    &__user {
+      opacity: 0.5;
+    }
+  }
+  &-rating {
+    display: flex;
+    margin-bottom: 9px;
+    &__item {
+      width: 17px;
+      height: 17px;
+      &:not(:last-child) {
+        margin-right: 3px;
+      }
+    }
+  }
+  &__description {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}

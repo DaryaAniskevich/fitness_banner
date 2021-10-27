@@ -41,6 +41,9 @@
     padding: 4px 5px 23px;
     backdrop-filter: blur(9.06094px);
     border-radius: 5px;
+    &_long {
+      border-radius: 0 0 5px 5px;
+    }
     &__term {
       display: flex;
       flex-direction: column;

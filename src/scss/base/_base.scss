@@ -56,3 +56,8 @@ a {
   display: none;
   transition: all 0.5s ease;
 }
+
+.active {
+  color: $white;
+  background: linear-gradient(225deg, #894ac9 0%, #4d46b1 100%);
+}

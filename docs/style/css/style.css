@@ -306,6 +306,12 @@ a:hover {
   transition: all 0.5s ease;
 }
 
+.active {
+  color: #ffffff;
+  background: -o-linear-gradient(225deg, #894ac9 0%, #4d46b1 100%);
+  background: linear-gradient(225deg, #894ac9 0%, #4d46b1 100%);
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -525,6 +531,10 @@ a:hover {
   -webkit-backdrop-filter: blur(9.06094px);
           backdrop-filter: blur(9.06094px);
   border-radius: 5px;
+}
+
+.tariff-item_long {
+  border-radius: 0 0 5px 5px;
 }
 
 .tariff-item__term {

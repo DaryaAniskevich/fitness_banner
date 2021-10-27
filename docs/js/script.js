@@ -1,99 +1,90 @@
-const cards = document.querySelectorAll(".slider-card");
-const sliderItemsBlock = document.querySelector(".slider-wrapper");
+const sliderCards = document.querySelectorAll(".slider-card");
+const sliderWrapper = document.querySelector(".slider-wrapper");
 
 let count = 0;
-let width;
+let width = 0;
 
 const rollSlider = (count) => {
-  sliderItemsBlock.style.transform = `translate(-${count * width}px)`;
+  width = sliderCards[0].offsetWidth;
+  if (count === 0) {
+    sliderWrapper.style.transform = `translateX(20px)`;
+  } else {
+    sliderWrapper.style.transform = `translateX(-${
+      width * count - (20 - 5 * count)
+    }px)`;
+  }
 };
 
-const calculateSliderWidth = () => {
-  width = document.querySelector(".slider").offsetWidth;
-  sliderItemsBlock.style.width = width * cards.length + "px";
-  cards.forEach((card) => {
-    card.style.maxWidth = 960 + "px";
-    card.style.width = width + "px";
-  });
-};
+sliderWrapper.addEventListener("touchstart", handleTouchStart, false);
+sliderWrapper.addEventListener("touchmove", handleTouchMove, false);
 
-const calculateWidth = (size) => {
-  sliderItemsBlock.style.width = "100%";
-  cards.forEach((card) => {
-    card.style.maxWidth = size + "px";
-    card.style.width = "100%";
-  });
-};
+let x1 = null;
+let y1 = null;
 
-const changeActivePaginationItem = () => {
-  paginationItem.forEach((item) => {
-    if (item.id == count) {
-      item.classList.add("slider-pagination__item_active");
-    } else {
-      item.classList.remove("slider-pagination__item_active");
-    }
-  });
-};
-
-if (
-  document.documentElement.clientWidth >= 768 &&
-  document.documentElement.clientWidth < 1024
-) {
-  calculateSliderWidth();
+function handleTouchStart(event) {
+  const firstTouch = event.touches[0];
+  x1 = firstTouch.clientX;
+  y1 = firstTouch.clientY;
 }
 
-window.addEventListener("resize", () => {
-  if (
-    document.documentElement.clientWidth >= 768 &&
-    document.documentElement.clientWidth < 1024
-  ) {
-    calculateSliderWidth();
-  } else if (document.documentElement.clientWidth >= 1024) {
-    calculateWidth(390);
-    rollSlider(0);
-  } else if (document.documentElement.clientWidth < 768) {
-    calculateWidth(960);
-    rollSlider(0);
+function handleTouchMove(event) {
+  if (!x1 || !y1) {
+    return false;
   }
-});
+  let x2 = event.touches[0].clientX;
+  let y2 = event.touches[0].clientY;
 
-nextBtn.addEventListener("click", () => {
-  count++;
-  if (count >= cards.length) {
-    count = 0;
-  }
-  changeActivePaginationItem();
-  rollSlider(count);
-});
+  let xDiff = x2 - x1;
+  let yDiff = y2 - y1;
 
-prevBtn.addEventListener("click", () => {
-  count--;
-  if (count < 0) {
-    count = cards.length - 1;
-  }
-  changeActivePaginationItem();
-  rollSlider(count);
-});
-
-paginationBlock.addEventListener("click", (event) => {
-  if (event.target.classList.contains("slider-pagination__item")) {
-    paginationItem.forEach((item) => {
-      if (event.target.id == item.id) {
-        count = item.id;
-        item.classList.add("slider-pagination__item_active");
-      } else {
-        item.classList.remove("slider-pagination__item_active");
+  if (Math.abs(xDiff) > Math.abs(yDiff)) {
+    clearInterval(autoSlider);
+    if (xDiff > 0) {
+      count--;
+      if (count <= 0) {
+        count = 0;
       }
-    });
+    } else {
+      count++;
+      if (count >= sliderCards.length) {
+        count = 0;
+      }
+    }
+
     rollSlider(count);
   }
+  x1 = null;
+  y1 = null;
+
+  return;
+}
+
+const autoSlider = setInterval(() => {
+  count++;
+  if (count >= sliderCards.length) {
+    count = 0;
+  }
+  rollSlider(count);
+}, 5000);
+
+const tariffBlocks = document.querySelectorAll(".tariff-block");
+const tariffItems = document.querySelectorAll(".tariff-item");
+const continueBtn = document.querySelector(".tariff__button");
+let choosenTariff = "";
+
+tariffBlocks.forEach((tariff) => {
+  tariff.addEventListener("click", () => {
+    choosenTariff = tariff.dataset.href;
+    tariffItems.forEach((item) => {
+      item.classList.remove("active");
+      item.parentNode == tariff ? item.classList.add("active") : null;
+    });
+  });
 });
 
-//const showAllBtn = document.querySelector(".section__button_more");
-const cardItems = document.querySelectorAll(".section__item");
-
-showAllBtn.addEventListener("click", () => {
-  cardItems.forEach((card) => (card.style.display = "block"));
-  showAllBtn.style.display = "none";
+continueBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (choosenTariff) {
+    window.open(choosenTariff);
+  }
 });
-

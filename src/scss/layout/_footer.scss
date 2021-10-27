@@ -2,6 +2,9 @@
   font-size: 11px;
   line-height: 15px;
   opacity: 0.4;
-  padding: 12px 0 18px;
+  padding: 15px 0 38px;
   text-align: center;
+  @include iPhoneSE {
+    padding: 12px 0 18px;
+  }
 }

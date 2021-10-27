@@ -1,5 +1,13 @@
 .tariff {
-  padding: 62px 0 5px;
+  padding: 5px 0;
+  margin-top: 88px;
+
+  @include iPhoneSE {
+    margin-top: 57px;
+  }
+  @include iPhoneXR {
+    margin-top: 92px;
+  }
   &-container {
     display: flex;
     justify-content: space-between;
@@ -8,27 +16,39 @@
   &-block {
     position: relative;
     &__benefit {
-      padding: 3px;
       text-align: center;
       background-color: $benefit-color;
       border-radius: 5px 5px 0 0;
-      font-size: 11px;
+      padding: 5px;
+      font-size: 13px;
       line-height: 15px;
-      letter-spacing: 0.66px;
+      letter-spacing: 0.78px;
       font-weight: 700;
       text-transform: uppercase;
+      @include iPhoneSE {
+        padding: 3px;
+        font-size: 11px;
+        letter-spacing: 0.66px;
+      }
+      &_sale {
+        background-color: $sale-color;
+      }
     }
     &__sale {
       position: absolute;
       width: 100%;
       bottom: 0px;
-      background-color: $benefit-color;
+      background-color: $sale-color;
       border-radius: 0 0 5px 5px;
-      font-size: 7px;
+      font-size: 9px;
       line-height: 15px;
       text-align: center;
       letter-spacing: 0.42px;
-      padding: 0px 5px;
+      padding: 1px 5px;
+      @include iPhoneSE {
+        padding: 0px 5px;
+        font-size: 7px;
+      }
     }
   }
   &-item {
@@ -36,11 +56,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: $card-color;
-    width: 88px;
+    background-color: $card-color-light;
+    width: 105px;
     padding: 4px 5px 23px;
     backdrop-filter: blur(9.06094px);
     border-radius: 5px;
+    @include user_theme($dark) {
+      background-color: $tariff-color-dark;
+    }
+    @include user_theme($light) {
+      background-color: $card-color-light;
+    }
+    @include iPhoneSE {
+      width: 88px;
+    }
+    @include iPhoneXR {
+      width: 118px;
+      padding: 6px 11px 35px;
+    }
     &_long {
       border-radius: 0 0 5px 5px;
     }
@@ -48,28 +81,59 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 5px;
-      font-size: 20px;
-      line-height: 23px;
+      margin-bottom: 7px;
+      font-size: 24px;
+      line-height: 28px;
+      @include iPhoneSE {
+        font-size: 20px;
+        line-height: 23px;
+        margin-bottom: 5px;
+      }
+      @include iPhoneXR {
+        margin-bottom: 10px;
+      }
       &_small {
-        font-size: 13px;
-        line-height: 15px;
+        font-size: 15px;
+        line-height: 18px;
+        @include iPhoneSE {
+          font-size: 13px;
+          line-height: 15px;
+        }
       }
     }
     &__sum {
-      font-size: 11px;
-      line-height: 13px;
+      font-size: 13px;
+      line-height: 16px;
+      margin-bottom: 6px;
       letter-spacing: -0.3px;
-      margin-bottom: 3px;
       text-align: center;
+      @include iPhoneSE {
+        font-size: 11px;
+        line-height: 13px;
+        margin-bottom: 3px;
+      }
+      @include iPhoneXR {
+        margin-bottom: 8px;
+      }
     }
     &__month {
-      font-size: 10px;
-      line-height: 12px;
+      font-size: 13px;
+      line-height: 16px;
       letter-spacing: -0.3px;
+      @include iPhoneSE {
+        font-size: 10px;
+        line-height: 12px;
+      }
     }
   }
   &__button {
-    margin-top: 13px;
+    margin: 20px auto 0;
+    display: block;
+    @include iPhoneSE {
+      margin-top: 13px;
+    }
+    @include iPhoneXR {
+      margin-top: 29px;
+    }
   }
 }

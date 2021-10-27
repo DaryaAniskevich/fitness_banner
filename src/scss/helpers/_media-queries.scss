@@ -25,3 +25,27 @@
     @content;
   }
 }
+
+@mixin user_theme($theme) {
+  @media (prefers-color-scheme: $theme) {
+    @content;
+  }
+}
+
+@mixin iPhoneSE {
+  @media only screen and (device-width: 320px) and (device-height: 568px) {
+    @content;
+  }
+}
+
+@mixin iPhoneX {
+  @media only screen and (device-width: 375px) and (device-height: 812px) {
+    @content;
+  }
+}
+
+@mixin iPhoneXR {
+  @media only screen and (device-width: 414px) and (device-height: 896px) {
+    @content;
+  }
+}

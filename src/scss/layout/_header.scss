@@ -2,17 +2,37 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
-  padding: 28px 10px 179px;
+  padding: 48px 14px 298px;
   background-color: linear-gradient(225deg, #894ac9 0%, #4d46b1 100%);
-  background-image: url("../../images/SE_bg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-image: url("../../images/bg_X.png");
   @include images_x_2 {
-    background-image: url("../../images/SE_bg@2x.png");
+    background-image: url("../../images/bg_X@2x.png");
   }
   @include images_x_3 {
-    background-image: url("../../images/SE_bg@3x.png");
+    background-image: url("../../images/bg_X@3x.png");
+  }
+  @include iPhoneSE {
+    padding: 28px 10px 179px;
+    background-image: url("../../images/SE_bg.png");
+    @include images_x_2 {
+      background-image: url("../../images/SE_bg@2x.png");
+    }
+    @include images_x_3 {
+      background-image: url("../../images/SE_bg@3x.png");
+    }
+  }
+  @include iPhoneXR {
+    padding: 48px 12px 349px;
+    background-image: url("../../images/bg_XR.png");
+    @include images_x_2 {
+      background-image: url("../../images/bg_XR@2x.png");
+    }
+    @include images_x_3 {
+      background-image: url("../../images/bg_XR@3x.png");
+    }
   }
   &-button {
     display: flex;
@@ -26,9 +46,14 @@
   }
   &__heading {
     align-self: center;
-    font-size: 24px;
-    line-height: 24px;
-    letter-spacing: 0.26px;
+    font-size: 34px;
+    line-height: 41px;
+    letter-spacing: 0.37px;
     color: $white;
+    @include iPhoneSE {
+      font-size: 24px;
+      line-height: 24px;
+      letter-spacing: 0.26px;
+    }
   }
 }

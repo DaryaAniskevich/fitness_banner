@@ -18,12 +18,20 @@ body {
   font-size: 15px;
   line-height: 18px;
   font-weight: 400;
-  color: $main-text-color;
-  background-color: $bg-color;
+  color: $main-text-color-light;
+  background-color: $bg-light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   overflow-x: hidden;
+  @include user_theme($dark) {
+    background-color: $bg-dark;
+    color: $main-text-color-dark;
+  }
+  @include user_theme($light) {
+    color: $main-text-color-light;
+    background-color: $bg-light;
+  }
 }
 
 .container {

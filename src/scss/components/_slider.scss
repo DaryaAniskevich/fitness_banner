@@ -2,14 +2,25 @@
   position: absolute;
   overflow: hidden;
   width: 100%;
-  top: 200px;
+  top: 346px;
+  @include iPhoneSE {
+    top: 200px;
+  }
+  @include iPhoneXR {
+    top: 393px;
+  }
   &-wrapper {
-    width: calc(290px * 7);
+    width: calc(335px * 7);
     display: flex;
     grid-column-gap: 5px;
     left: 0;
     transition: all ease 1s;
     transform: translateX(20px);
-    // transform: translateX(-265px);
+    @include iPhoneSE {
+      width: calc(290px * 7);
+    }
+    @include iPhoneXR {
+      width: calc(374px * 7);
+    }
   }
 }

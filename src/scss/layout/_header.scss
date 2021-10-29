@@ -1,13 +1,14 @@
 .header {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: end;
   padding: 48px 14px 298px;
-  background-color: linear-gradient(225deg, #894ac9 0%, #4d46b1 100%);
+  background-color: #4d46b1;
+  background-image: url("../../images/bg_X.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background-image: url("../../images/bg_X.png");
   @include images_x_2 {
     background-image: url("../../images/bg_X@2x.png");
   }
